@@ -1,10 +1,32 @@
-<div class="container">
-    <div class="row" >
-        <div *ngFor="let product of products" class="col-md-2" [ngStyle]="{border: '2px solid red', margin: '20px'}">
-            <div class="card">
-                {{product.title}}
-                <button class="btn btn-info"></button>
-            </div>
-        </div>
+<div class="container mt-5">
+  <div class="row" *ngIf="products.length === 0">
+    <div class="text-center">
+      <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <p>Loading...</p>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 mt-3 mx-1" *ngFor="let product of products">
+      <div class="card align-items-center" style="width: 12rem; height: 15rem">
+        <img
+          class="card-img-top"
+          [ngStyle]="{ height: '150px', width: '100px', marginTop: '10px' }"
+          src="{{ product.image }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <p class="card-title">
+            {{
+              product.title.length === 20
+                ? product.title
+                : product.title.slice(0, 20) + "..."
+            }}
+          </p>
+          <p>${{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
