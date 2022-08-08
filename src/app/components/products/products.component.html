@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row" >
+        <div *ngFor="let product of products" class="col-md-2" [ngStyle]="{border: '2px solid red', margin: '20px'}">
+            <div class="card">
+                {{product.title}}
+                <button class="btn btn-info"></button>
+            </div>
+        </div>
+    </div>
+</div>
