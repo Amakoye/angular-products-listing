@@ -9,7 +9,11 @@
   </div>
   <div class="row">
     <div class="col-md-2 mt-3 mx-1" *ngFor="let product of products">
-      <div class="card align-items-center" style="width: 12rem; height: 15rem">
+      <a
+        class="card align-items-center"
+        routerLink="/product/{{ product.id }}"
+        style="width: 12rem; height: 15rem"
+      >
         <img
           class="card-img-top"
           [ngStyle]="{ height: '150px', width: '100px', marginTop: '10px' }"
@@ -26,7 +30,7 @@
           </p>
           <p>${{ product.price }}</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </div>

@@ -2,12 +2,17 @@
   <div class="container mt-3">
     <div class="row align-items-center">
       <div class="col-md-3">
-        <h3>Product-Listing</h3>
+        <a routerLink="/">
+          <h3>Product-Listing</h3>
+        </a>
       </div>
       <div class="col-md-9">
         <div class="container">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8 d-flex">
+              <div class="my-auto me-4">
+                <a routerLink="/"> All Products</a>
+              </div>
               <form class="form-inline mt-2 mt-md-0 d-flex mx-2">
                 <input
                   class="form-control mr-sm-2"
@@ -23,7 +28,7 @@
                 </button>
               </form>
             </div>
-            <div class="col-md-6 my-auto text-end">
+            <div class="col-md-4 my-auto text-end">
               <a routerLink="/cart"
                 ><fa-icon [icon]="faShoppingCart"></fa-icon>
                 <span class="mx-2">Cart</span></a

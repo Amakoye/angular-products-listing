@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <app-alert *ngIf="alertState" [alertText]="alertText"></app-alert>
+  <div class="row" *ngIf="!product">
+    <div class="text-center">
+      <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <p>Loading...</p>
+    </div>
+  </div>
+  <div class="container card col-md-8 my-5" *ngIf="product">
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          class="card-img-top"
+          [ngStyle]="{
+            height: 'auto',
+            width: '100%',
+            marginTop: '10px'
+          }"
+          src="{{ product.image }}"
+          alt="Card image cap"
+        />
+      </div>
+      <div class="col-md-6 ms-auto mx-3">
+        <div class="product-details mt-2">
+          <h5>{{ product.title }}</h5>
+          <p>
+            Category :
+            <span style="color: green">{{
+              product.category.slice(0, 1).toUpperCase() +
+                product.category.slice(1)
+            }}</span>
+          </p>
+        </div>
+        <hr />
+        <div class="product-description">
+          <p>
+            {{
+              product.description.slice(0, 1).toUpperCase() +
+                product.description.slice(1)
+            }}
+          </p>
+        </div>
+        <!-- <button class="btn btn-success mb-5">
+          <fa-icon [icon]="addToCart"></fa-icon> Add to Cart
+        </button> -->
+        <app-button
+          [btnIcon]="addToCart"
+          [btnText]="addToCartText"
+          (onAddToCart)="AddToCart(product)"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

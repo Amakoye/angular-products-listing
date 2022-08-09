@@ -1,0 +1,41 @@
+<div class="container">
+  <app-alert *ngIf="alertState" [alertText]="alertText"></app-alert>
+
+  <div class="row">
+    <div class="col-md-8 card pt-3 mt-5">
+      <div class="border-bottom mb-3">
+        <h5>Cart ({{ cartItems.length }})</h5>
+      </div>
+      <div class="mb-3" *ngFor="let cartItem of cartItems">
+        <app-cart-item
+          [cartItem]="cartItem"
+          [deleteIcon]="deleteIcon"
+          [incrementIcon]="increment"
+          [decrementIcon]="decrement"
+          (onDecrementQuantity)="decrementQuantity(cartItem)"
+          (onIncrementQuantity)="incrementQuantity(cartItem)"
+          (onRemoveFromCart)="deleteCartItem(cartItem)"
+        ></app-cart-item>
+        <hr />
+      </div>
+    </div>
+    <div class="col-md-3 ms-4 mt-5">
+      <div class="card">
+        <div class="my-2 mx-2 border-bottom">
+          <h6>CART SUMMARY</h6>
+        </div>
+        <div class="my-2 mx-2 border-bottom">
+          <span>SubTotal</span>
+          <span class="ms-3">${{ total }}</span>
+        </div>
+        <div class="mx-auto my-1">
+          <input
+            type="button"
+            class="btn btn-success"
+            value="CHECK OUT ({{ total }})"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
